@@ -20,14 +20,14 @@ function computerPlay() {
 function playRound(playerSelection , computerSelection) {
     let playerValue = playerSelection.toLowerCase();
     if ((playerValue == "rock" && computerSelection == "scissors" ) || (playerValue == "scissors" && computerSelection == "paper" ) || (playerValue == "paper" && computerSelection == "rock" )) {
-        return("Human wins round.");
+        return(`You win! ${playerValue} beats ${computerSelection}`);
     }   else if  ((playerValue == "rock" && computerSelection == "paper" ) || (playerValue == "scissors" && computerSelection == "rock" ) || (playerValue == "paper" && computerSelection == "scissors" )) {
-        return("You lose. Computer wins round.");
+        return(`You lose! ${computerSelection} beats ${playerValue}`);
     } else if ((playerValue == "rock" && computerSelection == "rock" ) || (playerValue == "scissors" && computerSelection == "scissors" ) || (playerValue == "paper" && computerSelection == "paper" )) {
-        return("It's a tie.");
+        return(`It's a tie.`);
     }
 }
 
 const playerSelection = " ";
 const computerSelection = computerPlay();
-console.log(playRound("Paper" , computerSelection));
+console.log(playRound("ROCK" , computerSelection));
