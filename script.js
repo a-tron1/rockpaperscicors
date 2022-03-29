@@ -18,15 +18,16 @@ function computerPlay() {
     }
 
 function playRound(playerSelection , computerSelection) {
-    if ((playerSelection == "rock" && computerSelection == "scissors" ) || (playerSelection == "scissors" && computerSelection == "paper" ) || (playerSelection == "paper" && computerSelection == "rock" )) {
-        return("Human wins round");
-    }   else if  ((playerSelection == "rock" && computerSelection == "paper" ) || (playerSelection == "scissors" && computerSelection == "rock" ) || (playerSelection == "paper" && computerSelection == "scissors" )) {
-        return("Computer wins round");
-    } else if ((playerSelection == "rock" && computerSelection == "rock" ) || (playerSelection == "scissors" && computerSelection == "scissors" ) || (playerSelection == "paper" && computerSelection == "paper" )) {
-        return("It's a tie");
+    let playerValue = playerSelection.toLowerCase();
+    if ((playerValue == "rock" && computerSelection == "scissors" ) || (playerValue == "scissors" && computerSelection == "paper" ) || (playerValue == "paper" && computerSelection == "rock" )) {
+        return("Human wins round.");
+    }   else if  ((playerValue == "rock" && computerSelection == "paper" ) || (playerValue == "scissors" && computerSelection == "rock" ) || (playerValue == "paper" && computerSelection == "scissors" )) {
+        return("You lose. Computer wins round.");
+    } else if ((playerValue == "rock" && computerSelection == "rock" ) || (playerValue == "scissors" && computerSelection == "scissors" ) || (playerValue == "paper" && computerSelection == "paper" )) {
+        return("It's a tie.");
     }
 }
 
-const playerSelection = "rock";
+const playerSelection = " ";
 const computerSelection = computerPlay();
-console.log(playRound(playerSelection , computerSelection));
+console.log(playRound("Paper" , computerSelection));
