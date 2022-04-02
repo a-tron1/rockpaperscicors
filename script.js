@@ -1,33 +1,64 @@
 console.log("hello world");
 
+const gameOption = ['rock' , 'paper' , 'scissors']; //game play options
 
-/*const rock = 1;
-const paper = 2;
-const scissors = 3; */
-
-/* this block of code generates a random selection for the computer player*/
+// this block of code generates a random selection for the computer player
 function computerPlay() {
-    let result = Math.floor(Math.random() * 3) + 1; 
-        if (result === 1) {
-            return "rock";
-        } else if (result === 2) {
-            return "paper";
-        } else if (result === 3) {
-            return "scissors";
-        }
-    }
+    let computerChoice = gameOption[Math.floor(Math.random() * gameOption.length)]; //radomize computer selection, using length of gameOption array
+    return computerChoice;
+}
+
+function playerChoice() { //prompt player selection and convert to lowCase to evaluate
+    let playerValue = prompt('Rock, paper, or scissors?');
+    return playerValue.toLowerCase();
+}
+//player and computer selection variables
+const computerSelection = computerPlay();
+const playerSelection = playerChoice();
 
 function playRound(playerSelection , computerSelection) {
-    let playerValue = playerSelection.toLowerCase();
-    if ((playerValue == "rock" && computerSelection == "scissors" ) || (playerValue == "scissors" && computerSelection == "paper" ) || (playerValue == "paper" && computerSelection == "rock" )) {
-        return(`You win! ${playerValue} beats ${computerSelection}`);
-    }   else if  ((playerValue == "rock" && computerSelection == "paper" ) || (playerValue == "scissors" && computerSelection == "rock" ) || (playerValue == "paper" && computerSelection == "scissors" )) {
-        return(`You lose! ${computerSelection} beats ${playerValue}`);
-    } else if ((playerValue == "rock" && computerSelection == "rock" ) || (playerValue == "scissors" && computerSelection == "scissors" ) || (playerValue == "paper" && computerSelection == "paper" )) {
+    const roundLose = `You lose! ${computerSelection} beats ${playerSelection}`; //reusable player lose message
+    const roundWin = `You win! ${playerSelection} beats ${computerSelection}`; //reusable player win message
+    if (playerSelection === computerSelection) { //evaluates tie
+        tieScore++;
         return(`It's a tie.`);
+    } else if (playerSelection == gameOption[0]) { //evaluates playerselection = rock
+            if (computerSelection == gameOption[1]) {
+                computerScore++;
+                return (roundLose); 
+            }   else (computerSelection == gameOption[2]); {
+                playerScore++;
+                return (roundWin);
+            }
+    } else if (playerSelection = gameOption[1]) { //evaluates playerselection = paper
+            if (computerSelection == gameOption[0]) {
+                playerScore++;
+                return (roundWin);
+            } else (computerSelection == gameOption[2]); {
+                computerScore++;
+                return (roundLose);
+            }      
+    } else if (playerSelection = gameOption[2]) { //evaluates playerselection = scissors
+            if (computerSelection == gameOption[0]) {
+                computerScore++;
+                return (roundLose); 
+            } else (computerSelection == gameOption[1]); {
+                playerScore++;
+                return (roundWin);
+            }
     }
 }
 
-const playerSelection = " ";
-const computerSelection = computerPlay();
-console.log(playRound("ROCK" , computerSelection));
+function game() {
+    for (let i = 0; i < 5; i++) {
+        playRound(playerSelection , computerSelection);
+        }
+    }
+//Round outcome counters
+let playerScore = 0;
+let computerScore = 0;
+let tieScore = 0; 
+
+console.log(game());
+console.log(`Player has ${playerScore} points`);
+console.log(`Computer has ${computerScore} points`);
