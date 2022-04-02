@@ -12,9 +12,9 @@ function playerChoice() { //prompt player selection and convert to lowCase to ev
     let playerValue = prompt('Rock, paper, or scissors?');
     return playerValue.toLowerCase();
 }
-//player and computer selection variables
-const computerSelection = computerPlay();
-const playerSelection = playerChoice();
+/*player and computer selection variables
+let computerSelection = computerPlay();
+let playerSelection = playerChoice();*/
 
 function playRound(playerSelection , computerSelection) {
     const roundLose = `You lose! ${computerSelection} beats ${playerSelection}`; //reusable player lose message
@@ -51,7 +51,12 @@ function playRound(playerSelection , computerSelection) {
 
 function game() {
     for (let i = 0; i < 5; i++) {
-        playRound(playerSelection , computerSelection);
+        let computerSelection = computerPlay();
+        let playerSelection = playerChoice();
+        console.log(playRound(playerSelection , computerSelection));
+        console.log(`Player has ${playerScore} points`);
+        console.log(`Computer has ${computerScore} points`);
+        console.log(`Rounds tied: ${tieScore}`);
         }
     }
 //Round outcome counters
@@ -60,5 +65,3 @@ let computerScore = 0;
 let tieScore = 0; 
 
 console.log(game());
-console.log(`Player has ${playerScore} points`);
-console.log(`Computer has ${computerScore} points`);
