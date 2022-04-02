@@ -46,6 +46,19 @@ function playRound(playerSelection , computerSelection) {
     }
 }
 
+function gameResult(playerScore , computerScore) { //evaluates winner
+    if (playerScore > computerScore) {
+        return(`Game over. 
+        Player wins the game!`)
+     } else if (playerScore < computerScore) {
+        return(`Game over. 
+        Computer wins the game`);
+     } else {
+        return (`Game over
+        Tie game`);
+     }
+}
+
 function game() {
     for (let i = 0; i < 5; i++) {
         let computerSelection = computerPlay(); //call computer selection
@@ -54,6 +67,9 @@ function game() {
         console.log(`Player has ${playerScore} points`);
         console.log(`Computer has ${computerScore} points`);
         console.log(`Rounds tied: ${tieScore}`);
+        if (i === 4){ //declares game winner
+            console.log(gameResult(playerScore , computerScore));
+        }
         }
     }
 //Round outcome counters
