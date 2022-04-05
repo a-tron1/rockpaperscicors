@@ -1,5 +1,3 @@
-console.log("hello world");
-
 const gameOption = ['rock' , 'paper' , 'scissors']; //game play options
 
 // this block of code generates a random selection for the computer player
@@ -77,4 +75,33 @@ let playerScore = 0;
 let computerScore = 0;
 let tieScore = 0; 
 
-console.log(game());
+
+/* Reviewer: @cavy
+
+Project creator: @A-Tron
+
+Project title: Rock Paper Scissors (w/o GUI)
+
+## Code ##
+
+Praises:
+
+* Core functionality of the game works as intended
+* Good variable and function names
+* Code is properly indented and easy to read
+
+Critiques:
+
+* Instead of defining global variables like playerScore and gameOption I would instead define them inside of your functions
+* Using a switch statement instead of a series of if statements could clean up your playRound function
+* Should use the strict comparison operator (===) instead of the abtract comparison operator (==) unless there is a reason to use abstract comparison (which I didn't see in your code)
+* Doesn't handle case where user enters an input that is not 'rock', 'paper', or 'scissors', instead user loses the round if they enter an invalid move
+* I would use a constant in your game function called rounds and set it to 5 instead of hardcoding it into your for loop to make it clear where to change the number of rounds in game should it need to be updated
+* I think you may have forgotten to remove console.log("hello world") from the top of script
+* At the end of your script where you call your game function I think you can just call game() instead of using console.log(game()) because you're already logging to the console inside your game function 
+* Some of your comments like 'call computer selection' are unnecessary because you already used good function and variable names to indicate what is happening in your code
+* Changing the return type of your playRound function to a boolean that indicates whether the player won or lost could simplify it.  
+
+## Overall ##
+
+Nice job! You really got the core functionality of the game down and your code was very easy to read because you paid attention to writing good names and line spacing. The only issues with your code that I could find were pretty minor.*/
